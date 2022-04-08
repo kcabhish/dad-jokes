@@ -1,1 +1,0 @@
-console.log('just a test file to check multiple entry');
