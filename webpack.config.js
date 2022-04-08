@@ -15,7 +15,23 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         // web pack provides contenthash to deal with caching issues of the assets. With each build the hash is updated.
         // https://webpack.js.org/guides/caching/
+        // If the assets are modified, this will generate a new file in the dist folder with a different hash.
         filename: '[name][contenthash].js',
+        // this property will clean up the old hashed contents
+        clean: true,
+    },
+    /**
+     * Overrides the default server property
+     */
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist'),
+        },
+        port: 3000,
+        open: true,
+        hot: true,
+        compress: true,
+        historyApiFallback: true,
     },
     module: {
         rules: [
