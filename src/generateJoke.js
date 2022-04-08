@@ -1,3 +1,13 @@
+import axios from 'axios';
+
 export function generateJoke() {
-    return "test";
+    const config = {
+        headers: {
+            Accept: 'application/json'
+        }
+    }
+    const url = "https://icanhazdadjoke.com";
+    axios.get(url, config).then((res) => {
+        document.getElementById('joke').innerHTML = res.data.joke
+    })
 }
