@@ -33,6 +33,7 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
