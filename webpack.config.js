@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     mode: 'development',
     // for single entry point
@@ -22,5 +24,13 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Webpack App',
+            filename: 'index.html',
+            // template is required to have custom code enabled so that webpack does not overwrite the contents that were modified in the dist folder
+            template: 'src/template.html',
+        })
+    ]
 }
