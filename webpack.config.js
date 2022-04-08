@@ -13,7 +13,9 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        // web pack provides contenthash to deal with caching issues of the assets. With each build the hash is updated.
+        // https://webpack.js.org/guides/caching/
+        filename: '[name][contenthash].js',
     },
     module: {
         rules: [
